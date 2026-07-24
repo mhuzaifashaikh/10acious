@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10acious — Turning Voice AI into Real Revenue</title>
+  <meta name="description" content="AI-powered voice solutions that drive measurable business growth for small businesses, automatically. Get set up for free.">
+  <meta name="theme-color" content="#16a34a">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="herobg.png" as="image" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Parkinsans:wght@300..800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <section class="hero" id="hero">
+    <!-- Background -->
+    <div class="hero-bg">
+      <img src="herobg.png" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="#" class="nav-logo" aria-label="10acious home">
+        <img src="10LOGO-WHITE-2-cropped.png" alt="10acious" class="nav-logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <h1 class="hero-heading">
+        <span class="line">
+          <span class="text-dim">Using</span><img src="voiceai-pill.png" alt="Voice AI" class="tag-pill-img"><span class="text-dim">to</span>
+        </span>
+        <span class="line">
+          Increase<img src="productivity-pilltag.png" alt="Productivity" class="tag-pill-img">
+        </span>
+      </h1>
+
+      <p class="hero-subtitle">
+        AI-powered voice solutions that drive measurable business growth, automatically.
+      </p>
+
+      <a href="#form" class="cta-btn">
+        Book a Demo
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 15L15 5M15 5H8M15 5V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Form Card — positioned at bottom of hero, peeking up like reference -->
+    <div class="form-card-wrapper" id="form">
+      <div class="form-card">
+        <h2 class="form-card-heading">
+          Currently setting small businesses up for <span class="free-highlight">free</span>
+        </h2>
+        <form id="lead-form" action="#" method="POST" novalidate>
+          <div class="form-group">
+            <label for="business-name" class="form-label">Business Name</label>
+            <input type="text" id="business-name" name="business_name" class="form-input" placeholder="e.g. Acme Co." required autocomplete="organization">
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="you@yourcompany.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000" required autocomplete="tel">
+          </div>
+          <button type="submit" class="form-submit-btn" id="submit-btn">
+            Claim Your Free Setup
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spacer so form card has room to overflow into -->
+  <div class="hero-spacer"></div>
+
+</body>
+</html>
