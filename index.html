@@ -79,7 +79,41 @@
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
     </nav>
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-panel">
+        <ul class="mobile-menu-links">
+          <li>
+            <a href="#services">
+              Services
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#about">
+              About
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#pricing">
+              Pricing
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#contact">
+              Contact
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </header>
 
   <!-- Main Content Landmark -->
@@ -263,6 +297,54 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var toggle = document.getElementById('nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var desktop = window.matchMedia('(min-width: 521px)');
+
+      function setOpen(open) {
+        menu.classList.toggle('open', open);
+        toggle.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.classList.toggle('menu-open', open);
+      }
+
+      function isOpen() {
+        return menu.classList.contains('open');
+      }
+
+      toggle.addEventListener('click', function () {
+        var open = !isOpen();
+        setOpen(open);
+        if (open) {
+          var first = menu.querySelector('a');
+          if (first) first.focus();
+        } else {
+          toggle.focus();
+        }
+      });
+
+      menu.addEventListener('click', function (event) {
+        if (event.target === menu || event.target.closest('a')) {
+          setOpen(false);
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && isOpen()) {
+          setOpen(false);
+          toggle.focus();
+        }
+      });
+
+      desktop.addEventListener('change', function (event) {
+        if (event.matches && isOpen()) setOpen(false);
+      });
+    })();
+  </script>
 
 </body>
 </html>
