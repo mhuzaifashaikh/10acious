@@ -102,19 +102,6 @@ section {
   object-position: center center;
 }
 
-.hero-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(254, 253, 248, 0.5) 0%,
-    rgba(254, 253, 248, 0.28) 40%,
-    rgba(254, 253, 248, 0.45) 100%
-  );
-  pointer-events: none;
-}
-
 .hero-bg::after {
   content: '';
   position: absolute;
@@ -122,6 +109,31 @@ section {
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
   background-size: 22px 22px;
   pointer-events: none;
+}
+
+/* iOS Safari clips fixed layers above the bottom toolbar, so on touch
+   devices the image is placed in the document flow instead, anchored to
+   the bottom edge so it runs seamlessly behind the URL bar */
+@supports (-webkit-touch-callout: none) {
+  @media (hover: none) and (pointer: coarse) {
+    body {
+      position: relative;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc(100vh + env(safe-area-inset-bottom, 0px) + 80px);
+      height: calc(100lvh + env(safe-area-inset-bottom, 0px) + 80px);
+      -webkit-transform: none;
+    }
+
+    .hero-bg img {
+      object-position: center bottom;
+    }
+  }
 }
 
 /* ===== SITE HEADER & NAVIGATION ===== */
