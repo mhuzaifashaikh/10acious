@@ -9,7 +9,9 @@
   <meta name="author" content="10acious">
   <meta name="theme-color" content="#fefdf8">
   <meta name="robots" content="index, follow">
-  
+
+  <script>document.documentElement.classList.add('js');</script>
+
   <!-- Canonical URL -->
   <link rel="canonical" href="https://10acious.pages.dev/">
 
@@ -39,6 +41,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Geomini:wght@200..800&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 
   <!-- Structured Data (Schema.org JSON-LD) -->
   <script type="application/ld+json">
@@ -122,7 +125,7 @@
     <!-- Hero Section -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
       <div class="hero-content">
-        <h1 class="hero-heading" id="hero-title">
+        <h1 class="hero-heading" id="hero-title" data-reveal style="--reveal-delay: 0s">
           <span class="line">
             <span class="text-dim">Using</span><img src="voiceai-pill.png" alt="Voice AI" class="tag-pill-img" width="1783" height="882" decoding="async"><span class="text-dim">to</span>
           </span>
@@ -131,12 +134,12 @@
           </span>
         </h1>
 
-        <p class="hero-subtitle">
+        <p class="hero-subtitle" data-reveal style="--reveal-delay: 0.12s">
           AI-powered voice solutions that drive measurable business growth, automatically.
         </p>
 
-        <a href="#form" class="cta-btn">
-          Demo
+        <a href="#form" class="cta-btn" data-reveal style="--reveal-delay: 0.24s">
+          Get your free setup
           <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M5 15L15 5M15 5H8M15 5V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -144,7 +147,7 @@
       </div>
 
       <!-- Form Card — Lead Capture -->
-      <div class="form-card-wrapper" id="form">
+      <div class="form-card-wrapper" id="form" data-reveal style="--reveal-delay: 0.36s">
         <div class="form-card">
           <h2 class="form-card-heading">
             Currently setting small businesses up for <span class="free-highlight">free</span>
@@ -173,26 +176,27 @@
     <!-- Services Section -->
     <section class="content-section" id="services" aria-labelledby="services-title">
       <div class="section-container">
-        <div class="section-header">
-          <h2 class="section-title" id="services-title">What 10acious Does</h2>
-          <p class="section-desc">Turn every inbound call into a qualified lead, appointment, or sale — 24/7 with zero human delay.</p>
+        <div class="section-header" data-reveal>
+          <p class="eyebrow" aria-hidden="true">Services</p>
+          <h2 class="section-title" id="services-title">What 10acious does</h2>
+          <p class="section-desc">Turn every inbound call into a qualified lead, appointment, or sale — 24/7, with zero human delay.</p>
         </div>
         <div class="services-grid">
-          <div class="service-card">
+          <div class="service-card" data-reveal style="--reveal-delay: 0s">
             <div class="service-icon" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             </div>
             <h3>24/7 Intelligent Answering</h3>
             <p>Never miss a customer inquiry. Your Voice AI answers instantly, handles FAQs, and captures caller details around the clock.</p>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-reveal style="--reveal-delay: 0.1s">
             <div class="service-icon" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
             </div>
             <h3>Instant Revenue Conversion</h3>
             <p>Qualify prospects during calls, book appointments directly to your calendar, and collect crucial job data in real time.</p>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-reveal style="--reveal-delay: 0.2s">
             <div class="service-icon" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
             </div>
@@ -206,21 +210,22 @@
     <!-- About Section -->
     <section class="content-section" id="about" aria-labelledby="about-title">
       <div class="section-container">
-        <div class="section-header">
-          <h2 class="section-title" id="about-title">Built for Growing Local Businesses</h2>
+        <div class="section-header" data-reveal>
+          <p class="eyebrow" aria-hidden="true">About</p>
+          <h2 class="section-title" id="about-title">Built for growing local businesses</h2>
           <p class="section-desc">Designed to solve missed calls, delayed follow-ups, and lost revenue opportunities for small business owners.</p>
         </div>
         <div class="stats-grid">
-          <div class="stat-card">
-            <span class="stat-number">100%</span>
+          <div class="stat-card" data-reveal style="--reveal-delay: 0s">
+            <span class="stat-number" data-count-to="100" data-count-suffix="%">100%</span>
             <span class="stat-label">Calls Answered</span>
           </div>
-          <div class="stat-card">
+          <div class="stat-card" data-reveal style="--reveal-delay: 0.1s">
             <span class="stat-number">0s</span>
             <span class="stat-label">Wait Time</span>
           </div>
-          <div class="stat-card">
-            <span class="stat-number">3x+</span>
+          <div class="stat-card" data-reveal style="--reveal-delay: 0.2s">
+            <span class="stat-number" data-count-to="3" data-count-suffix="x+">3x+</span>
             <span class="stat-label">More Qualified Leads</span>
           </div>
         </div>
@@ -230,11 +235,12 @@
     <!-- Pricing Section -->
     <section class="content-section" id="pricing" aria-labelledby="pricing-title">
       <div class="section-container">
-        <div class="section-header">
-          <h2 class="section-title" id="pricing-title">Limited Time Promotion</h2>
+        <div class="section-header" data-reveal>
+          <p class="eyebrow" aria-hidden="true">Pricing</p>
+          <h2 class="section-title" id="pricing-title">Limited time promotion</h2>
           <p class="section-desc">Claim your complete Voice AI setup with zero upfront implementation fees.</p>
         </div>
-        <div class="pricing-card">
+        <div class="pricing-card" data-reveal style="--reveal-delay: 0.1s">
           <div class="pricing-badge">Special Offer</div>
           <h3>Small Business Growth Package</h3>
           <div class="pricing-price">
@@ -242,11 +248,11 @@
             <span class="price-period">Setup Fee</span>
           </div>
           <ul class="pricing-features">
-            <li>✓ Custom Voice AI Assistant setup</li>
-            <li>✓ Calendar & Booking integration</li>
-            <li>✓ 24/7 Automated call answering</li>
-            <li>✓ Real-time SMS & Email lead notifications</li>
-            <li>✓ Dedicated onboarding support</li>
+            <li>Custom Voice AI Assistant setup</li>
+            <li>Calendar &amp; Booking integration</li>
+            <li>24/7 Automated call answering</li>
+            <li>Real-time SMS &amp; Email lead notifications</li>
+            <li>Dedicated onboarding support</li>
           </ul>
           <a href="#form" class="form-submit-btn pricing-btn">Claim Free Setup Now</a>
         </div>
@@ -256,24 +262,25 @@
     <!-- FAQ / Contact Section -->
     <section class="content-section" id="contact" aria-labelledby="contact-title">
       <div class="section-container">
-        <div class="section-header">
-          <h2 class="section-title" id="contact-title">Frequently Asked Questions</h2>
+        <div class="section-header" data-reveal>
+          <p class="eyebrow" aria-hidden="true">FAQ</p>
+          <h2 class="section-title" id="contact-title">Frequently asked questions</h2>
           <p class="section-desc">Have questions about setting up Voice AI for your business? We're here to help.</p>
         </div>
         <div class="faq-accordion">
-          <details class="faq-item">
+          <details class="faq-item" data-reveal style="--reveal-delay: 0s">
             <summary class="faq-question">How does the Voice AI sound to my callers?</summary>
             <div class="faq-answer">
               <p>Our Voice AI sounds natural, clear, and professional. It responds in real time with human-like conversation flow and tone.</p>
             </div>
           </details>
-          <details class="faq-item">
+          <details class="faq-item" data-reveal style="--reveal-delay: 0.1s">
             <summary class="faq-question">What does the free setup include?</summary>
             <div class="faq-answer">
               <p>We handle the complete initial configuration: voice model customization, prompt engineering, calendar integration, and test calls at zero cost.</p>
             </div>
           </details>
-          <details class="faq-item">
+          <details class="faq-item" data-reveal style="--reveal-delay: 0.2s">
             <summary class="faq-question">How fast can my business be up and running?</summary>
             <div class="faq-answer">
               <p>Most small business setups are completed within 24 to 48 hours after submitting your information.</p>
@@ -297,54 +304,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    (function () {
-      var toggle = document.getElementById('nav-toggle');
-      var menu = document.getElementById('mobile-menu');
-      var desktop = window.matchMedia('(min-width: 521px)');
-
-      function setOpen(open) {
-        menu.classList.toggle('open', open);
-        toggle.classList.toggle('open', open);
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-        document.body.classList.toggle('menu-open', open);
-      }
-
-      function isOpen() {
-        return menu.classList.contains('open');
-      }
-
-      toggle.addEventListener('click', function () {
-        var open = !isOpen();
-        setOpen(open);
-        if (open) {
-          var first = menu.querySelector('a');
-          if (first) first.focus();
-        } else {
-          toggle.focus();
-        }
-      });
-
-      menu.addEventListener('click', function (event) {
-        if (event.target === menu || event.target.closest('a')) {
-          setOpen(false);
-        }
-      });
-
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && isOpen()) {
-          setOpen(false);
-          toggle.focus();
-        }
-      });
-
-      desktop.addEventListener('change', function (event) {
-        if (event.matches && isOpen()) setOpen(false);
-      });
-    })();
-  </script>
 
 </body>
 </html>
