@@ -147,8 +147,12 @@ section {
 
 /* Functional layer: Liquid Glass reserved for navigation only */
 .navbar {
-  position: sticky;
-  top: 16px;
+  position: fixed;
+  top: calc(16px + env(safe-area-inset-top, 0px));
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
   z-index: 100;
   display: inline-flex;
   align-items: center;
@@ -159,7 +163,6 @@ section {
   border: none;
   border-radius: 12px;
   padding: 6px 6px 6px 18px;
-  margin-top: calc(24px + env(safe-area-inset-top, 0px));
   box-shadow: 0 2px 16px rgba(0, 34, 66, 0.06);
   transition: background 0.35s ease, box-shadow 0.35s ease;
 }
@@ -228,7 +231,7 @@ section {
   align-items: center;
   text-align: center;
   padding: 0 20px;
-  padding-top: clamp(40px, 6vh, 84px);
+  padding-top: calc(clamp(40px, 6vh, 84px) + 80px);
   max-width: 900px;
   width: 100%;
 }
@@ -920,7 +923,7 @@ body.menu-open {
   .navbar {
     padding: 5px 5px 5px 14px;
     gap: 4px;
-    margin-top: calc(14px + env(safe-area-inset-top, 0px));
+    top: calc(14px + env(safe-area-inset-top, 0px));
   }
 
   .nav-links a {
@@ -929,7 +932,7 @@ body.menu-open {
   }
 
   .hero-content {
-    padding-top: 28px;
+    padding-top: calc(28px + 64px + env(safe-area-inset-top, 0px));
   }
 
   .form-card-wrapper {
