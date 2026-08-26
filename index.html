@@ -34,7 +34,8 @@
   <link rel="apple-touch-icon" href="favicon.png">
 
   <!-- Preload Critical Assets -->
-  <link rel="preload" href="herobg.png" as="image" type="image/png" fetchpriority="high">
+  <link rel="preload" href="herobg.png" as="image" type="image/png" fetchpriority="high" media="(min-width: 769px)">
+  <link rel="preload" href="heromob.png" as="image" type="image/png" fetchpriority="high" media="(max-width: 768px)">
   <link rel="preload" href="10LOGO-WHITE-2-cropped.png" as="image" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,7 +68,10 @@
 
   <!-- Background Image with Fixed Layer -->
   <div class="hero-bg" aria-hidden="true">
-    <img src="herobg.png" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+    <picture>
+      <source srcset="heromob.png" media="(max-width: 768px)" width="941" height="1672">
+      <img src="herobg.png" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+    </picture>
   </div>
 
   <!-- Header / Navigation -->
