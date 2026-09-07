@@ -39,7 +39,7 @@
   <link rel="preload" href="10LOGO-WHITE-2-cropped.png" as="image" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geomini:wght@200..800&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geomini:wght@200..800&family=Parkinsans:wght@300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
@@ -65,15 +65,6 @@
 
   <!-- Skip to main content link for keyboard accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <!-- Background Image with Fixed Layer -->
-  <div class="hero-bg" aria-hidden="true">
-    <picture>
-      <source srcset="heromob.png" media="(max-width: 768px)" width="941" height="1672">
-      <img src="herobg.png" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
-    </picture>
-    <img src="mob2nd.png" alt="" class="hero-bg-continue" width="941" height="1672" decoding="async" aria-hidden="true">
-  </div>
 
   <!-- Header / Navigation -->
   <header class="site-header">
@@ -129,6 +120,13 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
+      <!-- Hero backdrop: anchored to the hero section -->
+      <div class="hero-bg" aria-hidden="true">
+        <picture>
+          <source srcset="heromob.png" media="(max-width: 768px)" width="941" height="1672">
+          <img src="herobg.png" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+        </picture>
+      </div>
       <div class="hero-content">
         <h1 class="hero-heading" id="hero-title" data-reveal style="--reveal-delay: 0s">
           <span class="line">
@@ -178,38 +176,25 @@
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="content-section" id="services" aria-labelledby="services-title">
-      <div class="section-container">
-        <div class="section-header" data-reveal>
-          <p class="eyebrow" aria-hidden="true">Services</p>
-          <h2 class="section-title" id="services-title">What 10acious does</h2>
-          <p class="section-desc">Turn every inbound call into a qualified lead, appointment, or sale — 24/7, with zero human delay.</p>
-        </div>
-        <div class="services-grid">
-          <div class="service-card" data-reveal style="--reveal-delay: 0s">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            </div>
-            <h3>24/7 Intelligent Answering</h3>
-            <p>Never miss a customer inquiry. Your Voice AI answers instantly, handles FAQs, and captures caller details around the clock.</p>
-          </div>
-          <div class="service-card" data-reveal style="--reveal-delay: 0.1s">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-            </div>
-            <h3>Instant Revenue Conversion</h3>
-            <p>Qualify prospects during calls, book appointments directly to your calendar, and collect crucial job data in real time.</p>
-          </div>
-          <div class="service-card" data-reveal style="--reveal-delay: 0.2s">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-            </div>
-            <h3>Zero-Friction Setup</h3>
-            <p>We build, train, and configure your Voice AI tailored to your business workflow so you start getting results immediately.</p>
-          </div>
-        </div>
-      </div>
+    <!-- Services Statement -->
+    <section class="statement-section" id="services" aria-labelledby="services-title">
+      <h2 class="statement" id="services-title">
+        <span class="statement-line statement-sans" data-reveal style="--reveal-delay: 0s">10ACIOUS <span class="text-dim">offers</span></span>
+        <span class="statement-line statement-serif" data-reveal style="--reveal-delay: 0.14s"><em class="serif-underline">Bespoke</em> AI voices answering every phone call 24/7</span>
+      </h2>
+    </section>
+
+    <!-- Tasks Statement -->
+    <section class="statement-section statement-close" id="tasks" aria-labelledby="tasks-title">
+      <h2 class="tasks-heading" id="tasks-title">
+        <span class="shuffle-setup" data-reveal style="--reveal-delay: 0s">completing tasks such as</span>
+        <span class="shuffle-frame" data-reveal style="--reveal-delay: 0.14s">
+          <span class="sr-only">customer service inquiries, appointment bookings, reception calls, taking orders, billing/account inquiries, booking reservations, and tech support quotes</span>
+          <span class="shuffle-viewport" aria-hidden="true">
+            <span class="shuffle-word">customer service inquiries</span>
+          </span>
+        </span>
+      </h2>
     </section>
 
     <!-- About Section -->

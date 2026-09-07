@@ -132,4 +132,35 @@
       counterObserver.observe(el);
     });
   }
+  /* ===== TASK PHRASE ROTATOR ===== */
+  var shuffleViewport = document.querySelector('.shuffle-viewport');
+
+  if (shuffleViewport && !reducedMotion) {
+    var shufflePhrases = [
+      'customer service inquiries',
+      'appointment bookings',
+      'reception calls',
+      'taking orders',
+      'billing/account inquiries',
+      'booking reservations',
+      'tech support quotes'
+    ];
+    var shuffleWord = shuffleViewport.querySelector('.shuffle-word');
+    var shuffleIndex = 0;
+    var SWAP_MS = 380;
+    var HOLD_MS = 1300;
+
+    setInterval(function () {
+      if (document.hidden) return;
+      shuffleWord.classList.add('is-leaving');
+      setTimeout(function () {
+        shuffleIndex = (shuffleIndex + 1) % shufflePhrases.length;
+        shuffleWord.textContent = shufflePhrases[shuffleIndex];
+        shuffleWord.classList.remove('is-leaving');
+        shuffleWord.classList.add('is-entering');
+        void shuffleWord.offsetWidth;
+        shuffleWord.classList.remove('is-entering');
+      }, SWAP_MS);
+    }, HOLD_MS);
+  }
 })();
