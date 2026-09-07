@@ -1092,30 +1092,17 @@ body.menu-open {
     padding-bottom: 72px;
   }
 
-  /* Mobile artwork flow: heromob + mob2nd are designed to stack seamlessly
-     at the same scale. Fit both to screen width, anchor the artwork to the
-     hero's bottom and push it up a bit; mob2nd continues exactly where the
-     hero artwork ends (its opaque white tail hands off into the white
-     lower-flow gradient). Keep the two 40px values in sync. */
-  .hero-bg {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-
-  .hero-bg img:not(.hero-bg-continue) {
-    height: auto;
-    transform: translateY(-40px);
-  }
-
+  /* Mobile-only continuation image below the hero (as first implemented
+     in a03821c): mob2nd.png hangs directly below the hero at full width
+     and natural height. */
   .hero-bg-continue {
     display: block;
-    top: calc(100% - 40px);
   }
 
+  /* Keep the statement text above the continuation image, which hangs
+     down over the top of this section (transparent bg = pre-grid look). */
   #services {
-    z-index: 2;
-    background: #ffffff;
+    z-index: 10;
   }
 
   .grid-bg {
