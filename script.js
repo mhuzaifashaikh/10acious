@@ -141,6 +141,10 @@
 
     function updateGrid() {
       gridTicking = false;
+      if (window.innerWidth <= 768) {
+        gridBg.style.transform = '';
+        return;
+      }
       var rect = gridSection.getBoundingClientRect();
       var y = Math.max(-360, Math.min(360, rect.top * 0.3));
       gridBg.style.transform = 'translate3d(0, ' + y + 'px, 0)';

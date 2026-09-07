@@ -1080,6 +1080,22 @@ body.menu-open {
     padding-bottom: 72px;
   }
 
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('mob2nd.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    transform: none !important;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  #services::after {
+    display: none;
+  }
+
   .content-section {
     padding: 56px 20px;
   }
