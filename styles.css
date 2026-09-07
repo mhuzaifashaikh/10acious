@@ -115,22 +115,6 @@ section {
   object-position: center bottom;
 }
 
-/* On desktop, never zoom the hero image past its natural 16:9 fit:
-   cap its height so the full image width is always visible
-   (hero taller than 16:9 reveals the page gradient above instead).
-   Large screens where the hero is shorter than 16:9 are unaffected. */
-@media (min-width: 769px) {
-  .hero-bg {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-
-  .hero-bg img {
-    height: min(100%, 56.25vw);
-  }
-}
-
 .hero-bg::after {
   content: '';
   position: absolute;
