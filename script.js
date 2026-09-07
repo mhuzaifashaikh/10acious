@@ -132,6 +132,35 @@
       counterObserver.observe(el);
     });
   }
+  /* ===== GRID PARALLAX (services section) ===== */
+  var gridBg = document.querySelector('.grid-bg');
+  var gridSection = document.getElementById('services');
+
+  if (gridBg && gridSection && !reducedMotion) {
+    var gridTicking = false;
+
+    function updateGrid() {
+      gridTicking = false;
+      var rect = gridSection.getBoundingClientRect();
+      var y = Math.max(-360, Math.min(360, rect.top * 0.3));
+      gridBg.style.transform = 'translate3d(0, ' + y + 'px, 0)';
+    }
+
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (!gridTicking) {
+          gridTicking = true;
+          requestAnimationFrame(updateGrid);
+        }
+      },
+      { passive: true }
+    );
+
+    window.addEventListener('resize', updateGrid);
+    updateGrid();
+  }
+
   /* ===== TASK PHRASE ROTATOR ===== */
   var shuffleViewport = document.querySelector('.shuffle-viewport');
 
