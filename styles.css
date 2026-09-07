@@ -1095,8 +1095,21 @@ body.menu-open {
   /* Mobile-only continuation image below the hero (as first implemented
      in a03821c): mob2nd.png hangs directly below the hero at full width
      and natural height. */
+  .hero-bg img:not(.hero-bg-continue) {
+    /* Raise heromob.png so its bottom edge lands exactly on the fold
+       (bottom of the viewport on load): shift up by hero height minus
+       viewport height. Its top is cropped off-screen; the fold line
+       passes behind the form card. lvh keeps the seam stable on iOS
+       Safari where the URL bar collapses; 100vh is the fallback. */
+    transform: translateY(calc(100vh - 100%));
+    transform: translateY(calc(100lvh - 100%));
+  }
+
   .hero-bg-continue {
     display: block;
+    /* Start exactly where heromob.png now ends (the fold) */
+    top: 100vh;
+    top: 100lvh;
   }
 
   /* Keep the statement text above the continuation image, which hangs
