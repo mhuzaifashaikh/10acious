@@ -953,6 +953,20 @@ section {
   transition-delay: var(--reveal-delay, 0s);
 }
 
+/* Glass form card: reveal with transform only — never fade the wrapper's opacity.
+   The backdrop blur lives on the child (.form-card); while this wrapper has
+   opacity < 1 it forms a "backdrop root", so the child's backdrop-filter
+   samples an empty group and the glass renders transparent until the fade
+   finishes, then the blur visibly pops in. Pinning opacity to 1 (slide-up
+   only) keeps the blur stable from the first paint. */
+.js .form-card-wrapper[data-reveal] {
+  opacity: 1;
+}
+
+.js .form-card-wrapper[data-reveal].in-view {
+  opacity: 1;
+}
+
 /* ===== MOBILE MENU ===== */
 .nav-toggle {
   display: none;
@@ -1530,5 +1544,18 @@ body.menu-open {
     filter: none;
     transform: none;
     opacity: 1;
+  }
+}
+
+/* ===== LAPTOP SCALING =====
+   On laptop-size viewports (13" MacBook class, roughly 1280-1512 CSS px)
+   the layout reads too large; the reference look is Chrome at 80% zoom.
+   CSS `zoom` on the root reflows layout exactly like browser zoom (text
+   wraps, background-size: cover adapts, 100vh sections still fill the
+   viewport), unlike transform: scale. Scoped to the laptop width band so
+   mobile (<= 768px) and large desktop (>= 1561px) rendering are untouched. */
+@media (min-width: 769px) and (max-width: 1560px) {
+  html {
+    zoom: 0.8;
   }
 }
