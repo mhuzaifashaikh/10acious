@@ -7,6 +7,7 @@
   <meta name="description" content="How 10acious collects, uses, and protects personal information in compliance with Canada's PIPEDA. Your privacy rights and our data practices, explained clearly.">
   <meta name="author" content="10acious">
   <meta name="theme-color" content="#fefdf8">
+  <meta name="color-scheme" content="light">
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://10acious.pages.dev/privacy.html">
@@ -15,16 +16,16 @@
   <meta property="og:title" content="Privacy Policy | 10acious">
   <meta property="og:description" content="How 10acious collects, uses, and protects personal information in compliance with Canada's PIPEDA.">
   <meta property="og:url" content="https://10acious.pages.dev/privacy.html">
-  <meta property="og:image" content="herobg.png">
+  <meta property="og:image" content="https://10acious.pages.dev/herobg.png">
   <meta property="og:site_name" content="10acious">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Privacy Policy | 10acious">
   <meta name="twitter:description" content="How 10acious collects, uses, and protects personal information in compliance with Canada's PIPEDA.">
-  <meta name="twitter:image" content="herobg.png">
+  <meta name="twitter:image" content="https://10acious.pages.dev/herobg.png">
 
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +33,7 @@
 
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.add('js');</script>
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -39,9 +41,9 @@
 
   <!-- Header / Navigation -->
   <header class="site-header">
-    <nav class="navbar" aria-label="Main navigation">
+    <nav class="navbar show-cta" aria-label="Main navigation">
       <a href="index.html" class="nav-logo" aria-label="10acious home">
-        <img src="10LOGO-WHITE-2-cropped.png" alt="10acious logo" class="nav-logo-img" width="1887" height="428" decoding="async">
+        <picture><source srcset="logo.webp" type="image/webp"><img src="10LOGO-WHITE-2-cropped.png" alt="10acious logo" class="nav-logo-img" width="1887" height="428" decoding="async"></picture>
       </a>
       <ul class="nav-links">
         <li><a href="index.html#services">Services</a></li>
@@ -49,7 +51,49 @@
         <li><a href="index.html#pricing">Pricing</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
+      <a href="index.html#form" class="nav-cta">
+        Free setup
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15L15 5M15 5H8M15 5V12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
     </nav>
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-panel">
+        <ul class="mobile-menu-links">
+          <li>
+            <a href="index.html#services">
+              Services
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="index.html#about">
+              About
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="index.html#pricing">
+              Pricing
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="index.html#contact">
+              Contact
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+            </a>
+          </li>
+        </ul>
+        <a href="index.html#form" class="mobile-menu-cta">
+          Free setup
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15L15 5M15 5H8M15 5V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
   </header>
 
   <main id="policy-content" class="policy-main">
@@ -132,7 +176,7 @@
       <section class="policy-card" aria-labelledby="s-retention">
         <h2 id="s-retention">Data retention</h2>
         <p>We keep personal information only as long as needed for the purpose it was collected, then delete or anonymize it.</p>
-        <div class="policy-table-wrap">
+        <div class="policy-table-wrap" tabindex="0" role="region" aria-label="Data retention periods">
           <table class="policy-table">
             <thead>
               <tr><th>Data type</th><th>Retention</th><th>Purpose</th></tr>
@@ -209,13 +253,23 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-container">
-      <div class="footer-brand">
-        <img src="10LOGO-WHITE-2-cropped.png" alt="10acious logo" width="1887" height="428" class="footer-logo" decoding="async">
-        <p>Turning Voice AI into Real Revenue for small businesses.</p>
+      <div class="footer-cta">
+        <p class="footer-statement">Turning Voice AI into <em class="serif-underline">Real Revenue</em> for small businesses.</p>
         <a href="index.html" class="policy-back-link">← Back to home</a>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 10acious. All rights reserved. · <a href="privacy.html">Privacy Policy</a></p>
+      <div class="footer-bar">
+        <a href="index.html" class="footer-brand" aria-label="10acious home">
+          <picture><source srcset="logo.webp" type="image/webp"><img src="10LOGO-WHITE-2-cropped.png" alt="10acious logo" width="1887" height="428" class="footer-logo" decoding="async" loading="lazy"></picture>
+        </a>
+        <ul class="footer-links">
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="footer-bottom">
+          <p>&copy; 2026 10acious. All rights reserved.<span class="footer-sep" aria-hidden="true"> · </span><a href="privacy.html" aria-current="page">Privacy Policy</a></p>
+        </div>
       </div>
     </div>
   </footer>

@@ -8,6 +8,7 @@
   <meta name="keywords" content="Voice AI, Revenue Automation, Small Business AI, AI Phone Agent, 10acious">
   <meta name="author" content="10acious">
   <meta name="theme-color" content="#fefdf8">
+  <meta name="color-scheme" content="light">
   <meta name="robots" content="index, follow">
 
   <script>document.documentElement.classList.add('js');</script>
@@ -20,24 +21,24 @@
   <meta property="og:title" content="10acious — Turning Voice AI into Real Revenue">
   <meta property="og:description" content="AI-powered voice solutions that drive measurable business growth for small businesses, automatically. Currently setting small businesses up for free.">
   <meta property="og:url" content="https://10acious.pages.dev/">
-  <meta property="og:image" content="herobg.png">
+  <meta property="og:image" content="https://10acious.pages.dev/herobg.png">
   <meta property="og:site_name" content="10acious">
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="10acious — Turning Voice AI into Real Revenue">
   <meta name="twitter:description" content="AI-powered voice solutions that drive measurable business growth for small businesses, automatically.">
-  <meta name="twitter:image" content="herobg.png">
+  <meta name="twitter:image" content="https://10acious.pages.dev/herobg.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <!-- Preload Critical Assets -->
-  <link rel="preload" href="herobg.png" as="image" type="image/png" fetchpriority="high" media="(min-width: 769px)">
-  <link rel="preload" href="heromob.png" as="image" type="image/png" fetchpriority="high" media="(max-width: 768px)">
-  <link rel="preload" href="mob2nd.png" as="image" type="image/png" media="(max-width: 768px)">
-  <link rel="preload" href="10LOGO-WHITE-2-cropped.png" as="image" type="image/png">
+  <link rel="preload" href="herobg.webp" as="image" type="image/webp" fetchpriority="high" media="(min-width: 769px), (min-width: 480px) and (max-height: 480px)">
+  <link rel="preload" href="heromob.webp" as="image" type="image/webp" fetchpriority="high" media="(max-width: 479px), (max-width: 768px) and (min-height: 481px)">
+  <link rel="preload" href="mob2nd.webp" as="image" type="image/webp" media="(max-width: 479px), (max-width: 768px) and (min-height: 481px)">
+  <link rel="preload" href="logo.webp" as="image" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geomini:wght@200..800&family=Parkinsans:wght@300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -71,7 +72,7 @@
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
       <a href="#" class="nav-logo" aria-label="10acious home">
-        <img src="10LOGO-WHITE-2-cropped.png" alt="10acious logo" class="nav-logo-img" width="1887" height="428" decoding="async">
+        <picture><source srcset="logo.webp" type="image/webp"><img src="10LOGO-WHITE-2-cropped.png" alt="10acious logo" class="nav-logo-img" width="1887" height="428" decoding="async"></picture>
       </a>
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
@@ -79,6 +80,10 @@
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <a href="#form" class="nav-cta">
+        Free setup
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15L15 5M15 5H8M15 5V12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
         <span class="nav-toggle-bar"></span>
         <span class="nav-toggle-bar"></span>
@@ -112,6 +117,10 @@
             </a>
           </li>
         </ul>
+        <a href="#form" class="mobile-menu-cta">
+          Free setup
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15L15 5M15 5H8M15 5V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </header>
@@ -124,18 +133,22 @@
       <!-- Hero backdrop: anchored to the hero section -->
       <div class="hero-bg" aria-hidden="true">
         <picture>
+          <source srcset="herobg.webp" type="image/webp" media="(min-width: 480px) and (max-height: 480px)" width="1672" height="941">
+          <source srcset="heromob.webp" type="image/webp" media="(max-width: 768px)" width="941" height="1672">
           <source srcset="heromob.png" media="(max-width: 768px)" width="941" height="1672">
+          <source srcset="herobg.webp" type="image/webp" width="1672" height="941">
           <img src="herobg.png" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
         </picture>
-        <img src="mob2nd.png" alt="" class="hero-bg-continue" width="941" height="1672" decoding="async" aria-hidden="true">
+        <picture><source srcset="mob2nd.webp" type="image/webp"><img src="mob2nd.png" alt="" class="hero-bg-continue" width="941" height="1672" decoding="async" loading="lazy" aria-hidden="true"></picture>
+        <div class="hero-motes"></div>
       </div>
       <div class="hero-content">
         <h1 class="hero-heading" id="hero-title" data-reveal style="--reveal-delay: 0s">
           <span class="line">
-            <span class="text-dim">Using</span><img src="voiceai-pill.png" alt="Voice AI" class="tag-pill-img" width="1783" height="882" decoding="async"><span class="text-dim">to</span>
+            <span class="text-dim">Using</span><picture><source srcset="voiceai-pill.webp" type="image/webp"><img src="voiceai-pill.png" alt="Voice AI" class="tag-pill-img" width="1783" height="882" decoding="async"></picture><span class="text-dim">to</span>
           </span>
           <span class="line">
-            Increase<img src="productivity-pilltag.png" alt="Productivity" class="tag-pill-img tag-pill-productivity" width="2227" height="706" decoding="async">
+            Increase<picture><source srcset="productivity-pilltag.webp" type="image/webp"><img src="productivity-pilltag.png" alt="Productivity" class="tag-pill-img tag-pill-productivity" width="2227" height="706" decoding="async"></picture>
           </span>
         </h1>
 
@@ -160,15 +173,15 @@
           <form id="lead-form" action="#" method="POST" aria-label="Free Setup Request Form">
             <div class="form-group">
               <label for="business-name" class="form-label">Business Name</label>
-              <input type="text" id="business-name" name="business_name" class="form-input" placeholder="e.g. Acme Co." required autocomplete="organization">
+              <input type="text" id="business-name" name="business_name" class="form-input" placeholder="e.g. Acme Co." required autocomplete="organization" autocapitalize="words" enterkeyhint="next">
             </div>
             <div class="form-group">
               <label for="email" class="form-label">Email Address</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="you@yourcompany.com" required autocomplete="email">
+              <input type="email" id="email" name="email" class="form-input" placeholder="you@yourcompany.com" required autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" enterkeyhint="next">
             </div>
             <div class="form-group">
               <label for="phone" class="form-label">Phone Number</label>
-              <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000" required autocomplete="tel">
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000" required autocomplete="tel" inputmode="tel" enterkeyhint="send">
             </div>
             <button type="submit" class="form-submit-btn" id="submit-btn">
               Claim Your Free Setup
@@ -185,6 +198,12 @@
         <span class="statement-line statement-sans" data-reveal style="--reveal-delay: 0s">10ACIOUS <span class="text-dim">offers</span></span>
         <span class="statement-line statement-serif" data-reveal style="--reveal-delay: 0.14s"><em class="serif-underline">bespoke</em> AI voices answering every <span class="inbound-highlight">inbound</span> call 24/7</span>
       </h2>
+
+      <!-- The voice: a live waveform drawn from the logo's pill shape -->
+      <div class="voice-wave" aria-hidden="true" data-reveal>
+        <canvas></canvas>
+      </div>
+
       <h2 class="tasks-heading">
         <span class="shuffle-setup" data-reveal style="--reveal-delay: 0s">completing tasks such as</span>
         <span class="shuffle-frame" data-reveal style="--reveal-delay: 0.14s">
@@ -194,6 +213,18 @@
           </span>
         </span>
       </h2>
+
+      <!-- Every task at a glance. Mirrors the rotating phrase above
+           (already announced once via the sr-only text), so hidden from AT. -->
+      <ul class="task-chips" aria-hidden="true" data-reveal style="--reveal-delay: 0.24s">
+        <li class="task-chip is-active">customer service inquiries</li>
+        <li class="task-chip">appointment bookings</li>
+        <li class="task-chip">reception calls</li>
+        <li class="task-chip">taking orders</li>
+        <li class="task-chip">billing/account inquiries</li>
+        <li class="task-chip">booking reservations</li>
+        <li class="task-chip">tech support quotes</li>
+      </ul>
     </section>
 
     <!-- Lower Page Flow: White-to-Lime Gradient -->
@@ -203,21 +234,43 @@
       <section class="content-section" id="about" aria-labelledby="about-title">
         <div class="section-container">
           <div class="section-header" data-reveal>
+            <span class="section-tag section-tag--lime" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.6 5.2 4.8 9.4 10 10-5.2.6-9.4 4.8-10 10-.6-5.2-4.8-9.4-10-10 5.2-.6 9.4-4.8 10-10z"/></svg>
+              About
+            </span>
             <h2 class="section-title" id="about-title">Built for <em class="serif-underline">growing</em> local businesses</h2>
             <p class="section-desc">Designed to solve missed calls, delayed follow-ups, and lost revenue opportunities for small business owners.</p>
           </div>
           <div class="stats-grid">
-            <div class="stat-card" data-reveal style="--reveal-delay: 0s">
-              <span class="stat-number" data-count-to="100" data-count-suffix="%">100%</span>
-              <span class="stat-label">Calls Answered</span>
+            <div class="stat-card" data-reveal data-spot style="--reveal-delay: 0s">
+              <div class="stat-visual stat-visual--calls" aria-hidden="true"></div>
+              <div class="stat-body">
+                <span class="stat-number"><span data-count-to="100">100</span><span class="stat-unit">%</span></span>
+                <span class="stat-label">Calls Answered</span>
+              </div>
             </div>
-            <div class="stat-card" data-reveal style="--reveal-delay: 0.1s">
-              <span class="stat-number">0s</span>
-              <span class="stat-label">Wait Time</span>
+            <div class="stat-card" data-reveal data-spot style="--reveal-delay: 0.1s">
+              <div class="stat-visual stat-visual--wait" aria-hidden="true">
+                <svg class="dial" viewBox="0 0 100 100" fill="none">
+                  <rect class="dial-crown" x="45.5" y="3" width="9" height="9" rx="2.5"/>
+                  <circle class="dial-face" cx="50" cy="55" r="38"/>
+                  <circle class="dial-ticks" cx="50" cy="55" r="31"/>
+                  <line class="dial-hand" x1="50" y1="55" x2="50" y2="29"/>
+                  <circle class="dial-hub" cx="50" cy="55" r="4.5"/>
+                  <circle class="dial-zero" cx="50" cy="17" r="4.5"/>
+                </svg>
+              </div>
+              <div class="stat-body">
+                <span class="stat-number">0<span class="stat-unit">s</span></span>
+                <span class="stat-label">Wait Time</span>
+              </div>
             </div>
-            <div class="stat-card" data-reveal style="--reveal-delay: 0.2s">
-              <span class="stat-number" data-count-to="3" data-count-suffix="x+">3x+</span>
-              <span class="stat-label">More Qualified Leads</span>
+            <div class="stat-card" data-reveal data-spot style="--reveal-delay: 0.2s">
+              <div class="stat-visual stat-visual--growth" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="stat-body">
+                <span class="stat-number"><span data-count-to="3">3</span><span class="stat-unit">x+</span></span>
+                <span class="stat-label">More Qualified Leads</span>
+              </div>
             </div>
           </div>
         </div>
@@ -227,10 +280,14 @@
       <section class="content-section" id="pricing" aria-labelledby="pricing-title">
         <div class="section-container">
           <div class="section-header" data-reveal>
+            <span class="section-tag section-tag--peach" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V11M10 19V5M16 19v-6M22 19H2"/></svg>
+              Pricing
+            </span>
             <h2 class="section-title" id="pricing-title">Limited time <em class="serif-underline">promotion</em></h2>
             <p class="section-desc">Claim your complete Voice AI setup with zero upfront implementation fees.</p>
           </div>
-          <div class="pricing-card" data-reveal style="--reveal-delay: 0.1s">
+          <div class="pricing-card" data-reveal data-spot style="--reveal-delay: 0.1s">
             <div class="pricing-badge">Special Offer</div>
             <h3>Small Business Growth Package</h3>
             <div class="pricing-price">
@@ -244,17 +301,28 @@
               <li>Real-time SMS &amp; Email lead notifications</li>
               <li>Dedicated onboarding support</li>
             </ul>
-            <a href="#form" class="form-submit-btn pricing-btn">Claim Free Setup Now</a>
+            <a href="#form" class="form-submit-btn pricing-btn">
+              Claim Free Setup Now
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15L15 5M15 5H8M15 5V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </div>
         </div>
       </section>
 
       <!-- FAQ / Contact Section -->
       <section class="content-section" id="contact" aria-labelledby="contact-title">
-        <div class="section-container">
+        <div class="section-container faq-layout">
           <div class="section-header" data-reveal>
+            <span class="section-tag section-tag--sky" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+              FAQ
+            </span>
             <h2 class="section-title" id="contact-title">Frequently asked <em class="serif-underline">questions</em></h2>
             <p class="section-desc">Have questions about setting up Voice AI for your business? We're here to help.</p>
+            <a href="mailto:10aciousai@gmail.com" class="contact-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>
+              Email us
+            </a>
           </div>
           <div class="faq-accordion">
             <details class="faq-item" data-reveal style="--reveal-delay: 0s">
@@ -285,12 +353,26 @@
   <!-- Footer Landmark -->
   <footer class="site-footer">
     <div class="footer-container">
-      <div class="footer-brand">
-        <img src="10LOGO-WHITE-2-cropped.png" alt="10acious logo" width="1887" height="428" class="footer-logo" decoding="async">
-        <p>Turning Voice AI into Real Revenue for small businesses.</p>
+      <div class="footer-cta" data-reveal>
+        <p class="footer-statement">Turning Voice AI into <em class="serif-underline">Real Revenue</em> for small businesses.</p>
+        <a href="#form" class="form-submit-btn footer-btn">
+          Claim Your Free Setup
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15L15 5M15 5H8M15 5V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 10acious. All rights reserved. · <a href="privacy.html">Privacy Policy</a></p>
+      <div class="footer-bar">
+        <a href="#" class="footer-brand" aria-label="10acious, back to top">
+          <picture><source srcset="logo.webp" type="image/webp"><img src="10LOGO-WHITE-2-cropped.png" alt="10acious logo" width="1887" height="428" class="footer-logo" decoding="async" loading="lazy"></picture>
+        </a>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="footer-bottom">
+          <p>&copy; 2026 10acious. All rights reserved.<span class="footer-sep" aria-hidden="true"> · </span><a href="privacy.html">Privacy Policy</a></p>
+        </div>
       </div>
     </div>
   </footer>
