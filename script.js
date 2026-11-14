@@ -266,10 +266,6 @@
 
   if (introActive) {
     window.__introStarted = true;
-    try {
-      sessionStorage.setItem('introSeen', '1');
-    } catch (e) {}
-
     var introLayer = $('.hero-intro');
 
     if (!introLayer || window.scrollY > 40) {
@@ -284,6 +280,9 @@
       film.preload = 'auto';
       film.poster = 'intro-poster.jpg';
       film.src = 'intro-desktop.mp4';
+      /* A touch quicker than filmed */
+      film.defaultPlaybackRate = 1.25;
+      film.playbackRate = 1.25;
       introLayer.appendChild(film);
 
       var playing = false;

@@ -13,7 +13,7 @@
 
   <script>document.documentElement.classList.add('js');</script>
   <!-- Opening film: decided before first paint so nothing flashes. Desktop
-       only, once per visit, never with reduced motion or data saver. The
+       only, on every load, never with reduced motion or data saver. The
        timer is a safety net: if the main script never runs, the page
        still appears. -->
   <script>
@@ -22,7 +22,7 @@
         var d = document.documentElement, m = window.matchMedia, c = navigator.connection;
         if (m('(min-width: 769px) and (min-height: 481px)').matches &&
             !m('(prefers-reduced-motion: reduce)').matches &&
-            !sessionStorage.getItem('introSeen') && !location.hash && !(c && c.saveData)) {
+            !location.hash && !(c && c.saveData)) {
           d.classList.add('intro-active');
           setTimeout(function () { if (!window.__introStarted) d.classList.remove('intro-active'); }, 6000);
         }
