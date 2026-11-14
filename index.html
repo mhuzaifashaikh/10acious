@@ -12,6 +12,23 @@
   <meta name="robots" content="index, follow">
 
   <script>document.documentElement.classList.add('js');</script>
+  <!-- Opening film: decided before first paint so nothing flashes. Desktop
+       only, once per visit, never with reduced motion or data saver. The
+       timer is a safety net: if the main script never runs, the page
+       still appears. -->
+  <script>
+    (function () {
+      try {
+        var d = document.documentElement, m = window.matchMedia, c = navigator.connection;
+        if (m('(min-width: 769px) and (min-height: 481px)').matches &&
+            !m('(prefers-reduced-motion: reduce)').matches &&
+            !sessionStorage.getItem('introSeen') && !location.hash && !(c && c.saveData)) {
+          d.classList.add('intro-active');
+          setTimeout(function () { if (!window.__introStarted) d.classList.remove('intro-active'); }, 6000);
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://10acious.pages.dev/">
@@ -39,6 +56,7 @@
   <link rel="preload" href="heromob.webp" as="image" type="image/webp" fetchpriority="high" media="(max-width: 479px), (max-width: 768px) and (min-height: 481px)">
   <link rel="preload" href="mob2nd.webp" as="image" type="image/webp" media="(max-width: 479px), (max-width: 768px) and (min-height: 481px)">
   <link rel="preload" href="logo.webp" as="image" type="image/webp">
+  <link rel="preload" href="intro-poster.jpg" as="image" type="image/jpeg" media="(min-width: 769px) and (min-height: 481px)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geomini:wght@200..800&family=Parkinsans:wght@300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -141,6 +159,7 @@
         </picture>
         <picture><source srcset="mob2nd.webp" type="image/webp"><img src="mob2nd.png" alt="" class="hero-bg-continue" width="941" height="1672" decoding="async" loading="lazy" aria-hidden="true"></picture>
         <div class="hero-motes"></div>
+        <div class="hero-intro"></div>
       </div>
       <div class="hero-content">
         <h1 class="hero-heading" id="hero-title" data-reveal style="--reveal-delay: 0s">

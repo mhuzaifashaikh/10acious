@@ -511,6 +511,87 @@ html:not(.js) .nav-cta {
   }
 }
 
+/* ----- Opening film -----
+   Rises out of the water behind the boat and settles on the painting.
+   Sits exactly where the painting sits, so its last frame lines up. */
+.hero-intro {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #0d5f5a url('intro-poster.jpg') center bottom / cover no-repeat;
+  opacity: 1;
+  transition: opacity 0.9s ease;
+}
+
+.intro-active .hero-intro,
+.hero-intro.is-leaving {
+  display: block;
+}
+
+.hero-intro.is-leaving {
+  opacity: 0;
+}
+
+.hero-intro video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+/* While the film plays the interface waits out of sight */
+.intro-active .navbar {
+  animation-play-state: paused;
+}
+
+.intro-active .form-card {
+  opacity: 0;
+}
+
+.form-card {
+  transition: opacity 0.9s ease 0.35s;
+}
+
+/* Then the form rises up over the boat */
+.js.intro-arrive .form-card-wrapper[data-reveal]:not(.in-view) {
+  transform: translateY(7rem);
+}
+
+.intro-skip {
+  position: fixed;
+  right: 1.5rem;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  z-index: 120;
+  padding: 0.7em 1.2em;
+  min-height: 44px;
+  border: none;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, opacity 0.4s ease;
+}
+
+.intro-skip:hover {
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.intro-skip:focus-visible {
+  outline-color: #ffffff;
+}
+
+.intro-skip.is-leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ----- Hero content ----- */
 .hero-content {
   position: relative;

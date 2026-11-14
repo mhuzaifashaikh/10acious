@@ -227,6 +227,117 @@
     }
   }
 
+  /* ===== OPENING FILM =====
+     The class is set by an inline script in the head, before first paint.
+     Hero reveals wait for the film to end so the form rises as it does. */
+  var root = doc.documentElement;
+  var introActive = root.classList.contains('intro-active');
+  var afterIntro = [];
+
+  function endIntro(immediate) {
+    if (!introActive) return;
+    introActive = false;
+    root.classList.remove('intro-active');
+    root.classList.add('intro-arrive');
+
+    var layer = $('.hero-intro');
+    var skip = $('.intro-skip');
+    if (skip) skip.classList.add('is-leaving');
+    if (layer) layer.classList.add('is-leaving');
+
+    setTimeout(function () {
+      if (layer) {
+        var film = $('video', layer);
+        if (film) {
+          film.pause();
+          film.removeAttribute('src');
+          film.load();
+        }
+        layer.parentNode.removeChild(layer);
+      }
+      if (skip) skip.parentNode.removeChild(skip);
+    }, immediate ? 450 : 950);
+
+    /* next frame, so the arrival styles are in place before reveals fire */
+    requestAnimationFrame(function () {
+      afterIntro.forEach(function (fn) {
+        fn();
+      });
+    });
+  }
+
+  if (introActive) {
+    window.__introStarted = true;
+    try {
+      sessionStorage.setItem('introSeen', '1');
+    } catch (e) {}
+
+    var introLayer = $('.hero-intro');
+
+    if (!introLayer || window.scrollY > 40) {
+      endIntro(true);
+    } else {
+      var film = doc.createElement('video');
+      film.muted = true;
+      film.defaultMuted = true;
+      film.playsInline = true;
+      film.setAttribute('muted', '');
+      film.setAttribute('playsinline', '');
+      film.preload = 'auto';
+      film.poster = 'intro-poster.jpg';
+      film.src = 'intro-desktop.mp4';
+      introLayer.appendChild(film);
+
+      var playing = false;
+
+      /* A slow connection gets the site, not a wait */
+      var giveUp = setTimeout(function () {
+        if (!playing) endIntro(false);
+      }, 3500);
+
+      film.addEventListener('playing', function () {
+        playing = true;
+        clearTimeout(giveUp);
+      });
+
+      /* Hand over just before the last frame so the cross-fade lands on it */
+      film.addEventListener('timeupdate', function () {
+        if (film.duration && film.currentTime >= film.duration - 0.5) endIntro(false);
+      });
+      film.addEventListener('ended', function () {
+        endIntro(false);
+      });
+      film.addEventListener('error', function () {
+        endIntro(false);
+      });
+
+      var attempt = film.play();
+      if (attempt && attempt.catch) {
+        attempt.catch(function () {
+          endIntro(false);
+        });
+      }
+
+      var skipButton = doc.createElement('button');
+      skipButton.type = 'button';
+      skipButton.className = 'intro-skip';
+      skipButton.textContent = 'Skip intro';
+      doc.body.appendChild(skipButton);
+
+      var skipNow = function () {
+        endIntro(true);
+      };
+      skipButton.addEventListener('click', skipNow);
+      window.addEventListener('wheel', skipNow, { passive: true, once: true });
+      window.addEventListener('touchstart', skipNow, { passive: true, once: true });
+      window.addEventListener('keydown', function onKey(event) {
+        if (event.key === 'Tab' || event.key === 'Shift') return;
+        window.removeEventListener('keydown', onKey);
+        skipNow();
+      });
+    }
+  }
+
   /* ===== SCROLL REVEALS ===== */
   var revealEls = $$('[data-reveal]');
 
@@ -265,8 +376,16 @@
       { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
     );
 
+    var heroEl = doc.getElementById('hero');
+
     revealEls.forEach(function (el) {
-      revealObserver.observe(el);
+      if (introActive && heroEl && heroEl.contains(el)) {
+        afterIntro.push(function () {
+          revealObserver.observe(el);
+        });
+      } else {
+        revealObserver.observe(el);
+      }
     });
   } else {
     revealEls.forEach(function (el) {
