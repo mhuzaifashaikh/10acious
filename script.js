@@ -315,22 +315,15 @@
         });
       }
 
-      var skipNow = function () {
-        endIntro(true);
-      };
-      window.addEventListener('wheel', skipNow, { passive: true, once: true });
-      window.addEventListener('scroll', function onIntroScroll() {
+      /* The film always plays through: scrolling is held until it ends.
+         The one exception is a refresh that the browser restores to a
+         spot further down the page, where there is no film to watch. */
+      window.addEventListener('scroll', function onRestore() {
         if (window.scrollY > 40) {
-          window.removeEventListener('scroll', onIntroScroll);
-          skipNow();
+          window.removeEventListener('scroll', onRestore);
+          endIntro(true);
         }
       }, { passive: true });
-      window.addEventListener('touchstart', skipNow, { passive: true, once: true });
-      window.addEventListener('keydown', function onKey(event) {
-        if (event.key === 'Tab' || event.key === 'Shift') return;
-        window.removeEventListener('keydown', onKey);
-        skipNow();
-      });
     }
   }
 

@@ -540,9 +540,29 @@ html:not(.js) .nav-cta {
   object-position: center bottom;
 }
 
+/* The page holds still until the film has played */
+html {
+  scrollbar-gutter: stable;
+}
+
+html.intro-active,
+html.intro-active body {
+  overflow: hidden;
+}
+
 /* While the film plays the interface waits out of sight */
 .intro-active .navbar {
   animation-play-state: paused;
+}
+
+/* Invisible is not enough: hidden links and fields must not be
+   clickable or reachable by keyboard until the film has played */
+.intro-active .navbar,
+.intro-active .mobile-menu,
+.intro-active .hero-content,
+.intro-active .form-card-wrapper,
+.intro-active .skip-link {
+  visibility: hidden;
 }
 
 .intro-active .form-card {
