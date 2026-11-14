@@ -242,8 +242,6 @@
     if (window.scrollY < 40) root.classList.add('intro-arrive');
 
     var layer = $('.hero-intro');
-    var skip = $('.intro-skip');
-    if (skip) skip.classList.add('is-leaving');
     if (layer) layer.classList.add('is-leaving');
 
     setTimeout(function () {
@@ -256,7 +254,6 @@
         }
         layer.parentNode.removeChild(layer);
       }
-      if (skip) skip.parentNode.removeChild(skip);
     }, immediate ? 450 : 950);
 
     /* next frame, so the arrival styles are in place before reveals fire */
@@ -319,16 +316,9 @@
         });
       }
 
-      var skipButton = doc.createElement('button');
-      skipButton.type = 'button';
-      skipButton.className = 'intro-skip';
-      skipButton.textContent = 'Skip intro';
-      doc.body.appendChild(skipButton);
-
       var skipNow = function () {
         endIntro(true);
       };
-      skipButton.addEventListener('click', skipNow);
       window.addEventListener('wheel', skipNow, { passive: true, once: true });
       window.addEventListener('scroll', function onIntroScroll() {
         if (window.scrollY > 40) {

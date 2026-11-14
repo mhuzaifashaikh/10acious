@@ -558,40 +558,6 @@ html:not(.js) .nav-cta {
   transform: translateY(7rem);
 }
 
-.intro-skip {
-  position: fixed;
-  right: 1.5rem;
-  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
-  z-index: 120;
-  padding: 0.7em 1.2em;
-  min-height: 44px;
-  border: none;
-  border-radius: 100px;
-  background: rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-  color: #ffffff;
-  font-family: var(--font-display);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.25s ease, opacity 0.4s ease;
-}
-
-.intro-skip:hover {
-  background: rgba(255, 255, 255, 0.36);
-}
-
-.intro-skip:focus-visible {
-  outline-color: #ffffff;
-}
-
-.intro-skip.is-leaving {
-  opacity: 0;
-  pointer-events: none;
-}
-
 /* ----- Hero content ----- */
 .hero-content {
   position: relative;
