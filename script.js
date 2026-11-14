@@ -238,7 +238,8 @@
     if (!introActive) return;
     introActive = false;
     root.classList.remove('intro-active');
-    root.classList.add('intro-arrive');
+    /* The long rise of the form only makes sense while the hero is on screen */
+    if (window.scrollY < 40) root.classList.add('intro-arrive');
 
     var layer = $('.hero-intro');
     var skip = $('.intro-skip');
@@ -329,6 +330,12 @@
       };
       skipButton.addEventListener('click', skipNow);
       window.addEventListener('wheel', skipNow, { passive: true, once: true });
+      window.addEventListener('scroll', function onIntroScroll() {
+        if (window.scrollY > 40) {
+          window.removeEventListener('scroll', onIntroScroll);
+          skipNow();
+        }
+      }, { passive: true });
       window.addEventListener('touchstart', skipNow, { passive: true, once: true });
       window.addEventListener('keydown', function onKey(event) {
         if (event.key === 'Tab' || event.key === 'Shift') return;
