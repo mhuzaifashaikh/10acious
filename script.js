@@ -229,32 +229,20 @@
 
   /* ===== OPENING FILM =====
      The class is set by an inline script in the head, before first paint.
-     Hero reveals wait for the film to end so the form rises as it does. */
+     The film's last second is the painting itself easing to rest, so the
+     interface can arrive while the camera lands and nothing ever jumps. */
   var root = doc.documentElement;
   var introActive = root.classList.contains('intro-active');
   var afterIntro = [];
+  var filmGone = false;
 
-  function endIntro(immediate) {
+  /* Bring in the navigation, headline and form */
+  function showInterface() {
     if (!introActive) return;
     introActive = false;
     root.classList.remove('intro-active');
     /* The long rise of the form only makes sense while the hero is on screen */
     if (window.scrollY < 40) root.classList.add('intro-arrive');
-
-    var layer = $('.hero-intro');
-    if (layer) layer.classList.add('is-leaving');
-
-    setTimeout(function () {
-      if (layer) {
-        var film = $('video', layer);
-        if (film) {
-          film.pause();
-          film.removeAttribute('src');
-          film.load();
-        }
-        layer.parentNode.removeChild(layer);
-      }
-    }, 700);
 
     /* next frame, so the arrival styles are in place before reveals fire */
     requestAnimationFrame(function () {
@@ -264,13 +252,40 @@
     });
   }
 
+  /* Lift the film off the painting it has just come to rest on */
+  function removeFilm() {
+    if (filmGone) return;
+    filmGone = true;
+
+    var layer = $('.hero-intro');
+    if (!layer) return;
+    layer.classList.add('is-leaving');
+
+    setTimeout(function () {
+      var film = $('video', layer);
+      if (film) {
+        film.pause();
+        film.removeAttribute('src');
+        film.load();
+      }
+      if (layer.parentNode) layer.parentNode.removeChild(layer);
+    }, 700);
+  }
+
+  function endIntro() {
+    showInterface();
+    removeFilm();
+  }
+
   if (introActive) {
     window.__introStarted = true;
     var introLayer = $('.hero-intro');
 
     if (!introLayer || window.scrollY > 40) {
-      endIntro(true);
+      endIntro();
     } else {
+      introLayer.classList.add('is-on');
+
       var film = doc.createElement('video');
       film.muted = true;
       film.defaultMuted = true;
@@ -281,15 +296,15 @@
       film.poster = 'intro-poster.jpg';
       film.src = 'intro-desktop.mp4';
       /* A touch quicker than filmed */
-      film.defaultPlaybackRate = 1.25;
-      film.playbackRate = 1.25;
+      film.defaultPlaybackRate = 1.4;
+      film.playbackRate = 1.4;
       introLayer.appendChild(film);
 
       var playing = false;
 
       /* A slow connection gets the site, not a wait */
       var giveUp = setTimeout(function () {
-        if (!playing) endIntro(false);
+        if (!playing) endIntro();
       }, 3500);
 
       film.addEventListener('playing', function () {
@@ -297,29 +312,25 @@
         clearTimeout(giveUp);
       });
 
-      /* The film itself dissolves into the painting and holds on it, so
-         the hand-over waits for the true last frame: nothing shifts. */
-      film.addEventListener('ended', function () {
-        endIntro(false);
+      /* The interface starts to arrive as the camera glides its last few
+         pixels; the film itself stays until its true final frame, which
+         is the untouched painting. */
+      film.addEventListener('timeupdate', function () {
+        if (film.duration && film.currentTime >= film.duration - 0.6) showInterface();
       });
-      film.addEventListener('error', function () {
-        endIntro(false);
-      });
+      film.addEventListener('ended', endIntro);
+      film.addEventListener('error', endIntro);
 
       var attempt = film.play();
-      if (attempt && attempt.catch) {
-        attempt.catch(function () {
-          endIntro(false);
-        });
-      }
+      if (attempt && attempt.catch) attempt.catch(endIntro);
 
-      /* The film always plays through: scrolling is held until it ends.
+      /* The film always plays through: scrolling is held until it lands.
          The one exception is a refresh that the browser restores to a
          spot further down the page, where there is no film to watch. */
       window.addEventListener('scroll', function onRestore() {
         if (window.scrollY > 40) {
           window.removeEventListener('scroll', onRestore);
-          endIntro(true);
+          if (introActive) endIntro();
         }
       }, { passive: true });
     }

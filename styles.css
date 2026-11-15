@@ -525,6 +525,7 @@ html:not(.js) .nav-cta {
 }
 
 .intro-active .hero-intro,
+.hero-intro.is-on,
 .hero-intro.is-leaving {
   display: block;
 }
