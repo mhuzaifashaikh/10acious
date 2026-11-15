@@ -254,7 +254,7 @@
         }
         layer.parentNode.removeChild(layer);
       }
-    }, immediate ? 450 : 950);
+    }, 700);
 
     /* next frame, so the arrival styles are in place before reveals fire */
     requestAnimationFrame(function () {
@@ -297,10 +297,8 @@
         clearTimeout(giveUp);
       });
 
-      /* Hand over just before the last frame so the cross-fade lands on it */
-      film.addEventListener('timeupdate', function () {
-        if (film.duration && film.currentTime >= film.duration - 0.5) endIntro(false);
-      });
+      /* The film itself dissolves into the painting and holds on it, so
+         the hand-over waits for the true last frame: nothing shifts. */
       film.addEventListener('ended', function () {
         endIntro(false);
       });
